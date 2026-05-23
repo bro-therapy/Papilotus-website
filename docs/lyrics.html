@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOTEL SAINT — lyrics · PAPI LOTUS</title>
+  <meta name="description" content="Lyrics for MOTEL SAINT by PAPI LOTUS." />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@200;300;400&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .lyrics-page {
+      padding-top: calc(var(--letterbox-h) + var(--space-2xl));
+      padding-bottom: var(--space-2xl);
+      max-width: 720px;
+      margin: 0 auto;
+      padding-left: var(--space-md);
+      padding-right: var(--space-md);
+    }
+    .lyrics-back {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: var(--space-lg);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.35s;
+    }
+    .lyrics-back:hover { color: var(--neon); }
+    .lyrics-header {
+      margin-bottom: var(--space-xl);
+      padding-bottom: var(--space-md);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .lyrics-title {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      margin: 0 0 var(--space-xs);
+      color: var(--bone);
+    }
+    .lyrics-artist {
+      font-family: var(--font-wordmark);
+      font-size: 0.85rem;
+      letter-spacing: 0.4em;
+      color: var(--chrome);
+      opacity: 0.85;
+    }
+    .lyrics-body {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.25rem;
+      line-height: 1.85;
+      color: var(--text);
+    }
+    .lyrics-body p {
+      margin: 0 0 var(--space-lg);
+    }
+    .lyrics-section {
+      font-family: var(--font-mono);
+      font-style: normal;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--neon);
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+    .lyrics-footer {
+      margin-top: var(--space-xl);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--hairline);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+  </style>
+</head>
+<body>
+  <div id="signal-intro" class="signal-intro" aria-hidden="true">
+    <div class="signal-noise"></div>
+    <div class="signal-label">
+      <span class="signal-line">— SIGNAL LOCKED —</span>
+      <span class="signal-stamp">03:17 AM</span>
+    </div>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="letterbox letterbox-top" aria-hidden="true"></div>
+  <div class="letterbox letterbox-bottom" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-mark">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <use href="#lotus-icon"></use>
+      </svg>
+    </a>
+    <div class="nav-time">
+      <span class="nav-time-label">LOCAL</span>
+      <span id="nav-time">03:17 AM</span>
+    </div>
+  </nav>
+
+  <main class="lyrics-page">
+    <a href="index.html" class="lyrics-back">← back to signal</a>
+
+    <header class="lyrics-header">
+      <h1 class="lyrics-title">MOTEL SAINT</h1>
+      <div class="lyrics-artist">PAPI LOTUS</div>
+    </header>
+
+    <!-- =================================================
+         Paste your actual lyrics inside <p> tags below.
+         Wrap section labels in <span class="lyrics-section">
+         Example sections: VERSE 1 / CHORUS / BRIDGE / OUTRO
+         ================================================= -->
+    <article class="lyrics-body">
+      <p>
+        <span class="lyrics-section">verse 1</span>
+        replace this with your real lyrics.<br />
+        line two of the verse.<br />
+        line three sits here.<br />
+        line four lands.
+      </p>
+
+      <p>
+        <span class="lyrics-section">chorus</span>
+        the hook line goes here.<br />
+        repeat / response.<br />
+        the line that hurts.<br />
+        the line that sticks.
+      </p>
+
+      <p>
+        <span class="lyrics-section">verse 2</span>
+        verse two opening line.<br />
+        continues here.<br />
+        ends with weight.
+      </p>
+
+      <p>
+        <span class="lyrics-section">bridge</span>
+        the bridge moment.<br />
+        quiet shift.<br />
+        return to the wound.
+      </p>
+
+      <p>
+        <span class="lyrics-section">outro</span>
+        last line of the song.<br />
+        fade.
+      </p>
+    </article>
+
+    <footer class="lyrics-footer">
+      <span>© 2026 PAPI LOTUS</span>
+      <span>MOTEL SAINT — 03:17</span>
+    </footer>
+  </main>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="lotus-icon" viewBox="0 0 100 100">
+      <g fill="none" stroke="currentColor" stroke-width="1.3"
+         stroke-linecap="round" stroke-linejoin="round">
+        <path d="M50 82 C46 65 46 42 50 22 C54 42 54 65 50 82 Z" />
+        <path d="M50 82 C36 72 26 56 26 40 C34 50 44 62 50 82 Z" opacity="0.85" />
+        <path d="M50 82 C64 72 74 56 74 40 C66 50 56 62 50 82 Z" opacity="0.85" />
+        <path d="M50 82 C30 76 14 64 10 48 C24 54 40 64 50 82 Z" opacity="0.6" />
+        <path d="M50 82 C70 76 86 64 90 48 C76 54 60 64 50 82 Z" opacity="0.6" />
+        <line x1="18" y1="84" x2="82" y2="84" opacity="0.7" />
+      </g>
+    </symbol>
+  </svg>
+
+  <script src="script.js"></script>
+</body>
+</html>

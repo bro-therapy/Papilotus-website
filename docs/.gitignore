@@ -1,0 +1,19 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Local dev servers / build outputs (none used yet, but safe to ignore)
+node_modules/
+dist/
+build/
+.cache/
+
+# Local env / secrets
+.env
+.env.local
+
+# Logs
+*.log

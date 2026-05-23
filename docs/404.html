@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>signal lost · PAPI LOTUS</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=JetBrains+Mono:wght@200;300&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .err-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-md);
+      position: relative;
+    }
+    .err-static {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='2' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+      opacity: 0.08;
+      animation: noise-flicker 0.1s steps(4) infinite;
+      pointer-events: none;
+    }
+    .err-code {
+      font-family: var(--font-mono);
+      font-size: clamp(4rem, 18vw, 9rem);
+      font-weight: 200;
+      letter-spacing: 0.1em;
+      color: var(--neon);
+      line-height: 1;
+      margin-bottom: var(--space-md);
+      text-shadow: 0 0 30px rgba(179, 32, 71, 0.4);
+    }
+    .err-title {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      color: var(--bone);
+      margin: 0 0 var(--space-sm);
+    }
+    .err-sub {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: var(--space-xl);
+    }
+    .err-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.95rem 1.7rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      border: 1px solid var(--hairline-bright);
+      color: var(--text);
+      transition: all 0.4s ease;
+    }
+    .err-back:hover { border-color: var(--neon); color: var(--bone); background: var(--wine); }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="letterbox letterbox-top" aria-hidden="true"></div>
+  <div class="letterbox letterbox-bottom" aria-hidden="true"></div>
+
+  <main class="err-page">
+    <div class="err-static"></div>
+    <div class="err-code">404</div>
+    <h1 class="err-title">signal lost.</h1>
+    <div class="err-sub">— no transmission at this frequency —</div>
+    <!-- Project-pages base path. If you move to a custom domain, change to "/". -->
+    <a href="/Papilotus-website/" class="err-back">return to home <span>→</span></a>
+  </main>
+</body>
+</html>

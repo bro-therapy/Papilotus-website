@@ -1,4 +1,26 @@
-# Papi Lotus — 60-Day Content Calendar
+# Papi Lotus
+
+Command center for the Papi Lotus artist rollout — brand, social plan, and the website.
+
+## Repository structure
+
+| Path | What it is |
+|---|---|
+| `docs/` | The landing-page **website** (GitHub Pages serves this). See `docs/README.md`. |
+| `papi_lotus_60day_calendar_v2.csv` | The 60-day content calendar — canonical (`v1` kept for reference). |
+| `clip_factory.py` · `SETUP.md` · `CLIP_STRATEGY.md` | Turns one music video into post-ready clips. |
+| `HIGGSFIELD_PROMPT_PACK.md` | ~50 paste-ready AI image/video prompts. |
+| `strategy_notes_v2.md` · `*.pdf` · `HANDOFF.md` | Strategy, brand bible, and project handoff. |
+
+## Deploy the website
+
+The site lives in `docs/`. Turn on GitHub Pages: **Settings → Pages → Deploy from a branch
+→ main → /docs**. Live at `https://bro-therapy.github.io/Papilotus-website/`. Full guide in
+`docs/README.md`.
+
+---
+
+# 60-Day Content Calendar
 
 **157 posts. 60 days. One CSV.** Built off the strategy + brand docs.
 
