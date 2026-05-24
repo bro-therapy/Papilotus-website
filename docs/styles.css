@@ -1009,3 +1009,117 @@ section,
   }
   .signal-intro { animation: signal-fade 0.3s ease-out 0.3s forwards; }
 }
+
+/* ============================================================
+   TEASER / COUNTDOWN — next release (HATE ME)
+   ============================================================ */
+
+.teaser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+.teaser-era {
+  font-family: var(--font-wordmark);
+  font-size: 0.7rem;
+  letter-spacing: 0.5em;
+  text-indent: 0.5em;
+  color: var(--text-muted);
+  margin-bottom: var(--space-md);
+}
+.teaser-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--neon);
+  margin-bottom: var(--space-sm);
+}
+.teaser-title {
+  font-family: var(--font-wordmark);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 9vw, 5.5rem);
+  letter-spacing: 0.12em;
+  text-indent: 0.12em;
+  color: var(--bone);
+  margin: 0 0 var(--space-md);
+  text-shadow: 0 0 50px rgba(179, 32, 71, 0.35);
+}
+.teaser-tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--text-mid);
+  max-width: 32ch;
+  margin: 0 0 var(--space-xl);
+}
+
+.countdown {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+.cd-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 3.5rem;
+}
+.cd-num {
+  font-family: var(--font-mono);
+  font-weight: 300;
+  font-size: clamp(2rem, 7vw, 3.4rem);
+  line-height: 1;
+  color: var(--bone);
+  font-variant-numeric: tabular-nums;
+}
+.cd-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.65rem;
+}
+.cd-sep {
+  font-family: var(--font-mono);
+  font-weight: 300;
+  font-size: clamp(2rem, 7vw, 3.4rem);
+  line-height: 1;
+  color: var(--neon);
+  opacity: 0.45;
+}
+.countdown.is-live .cd-unit,
+.countdown.is-live .cd-sep { display: none; }
+.countdown.is-live::after {
+  content: "the signal is live.";
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--neon);
+}
+
+.teaser-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  border-bottom: 1px solid var(--hairline-bright);
+  padding-bottom: 0.5rem;
+  transition: color 0.35s, border-color 0.35s;
+}
+.teaser-link:hover { color: var(--neon); border-color: var(--neon); }
+
+@media (max-width: 540px) {
+  .countdown { gap: var(--space-sm); }
+  .cd-unit { min-width: 2.9rem; }
+}
