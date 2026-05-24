@@ -150,4 +150,35 @@
       });
     });
   }
+
+  // ---- Countdown to next release (HATE ME teaser) ----
+  var cd = document.getElementById("countdown");
+  if (cd) {
+    var target = new Date(cd.getAttribute("data-target")).getTime();
+    var elDays = document.getElementById("cd-days");
+    var elHours = document.getElementById("cd-hours");
+    var elMins = document.getElementById("cd-mins");
+    var elSecs = document.getElementById("cd-secs");
+    var cdTimer;
+
+    function pad(n) { return n < 10 ? "0" + n : "" + n; }
+
+    function tickCountdown() {
+      if (isNaN(target)) return;
+      var diff = target - Date.now();
+      if (diff <= 0) {
+        cd.classList.add("is-live");
+        if (cdTimer) clearInterval(cdTimer);
+        return;
+      }
+      var s = Math.floor(diff / 1000);
+      if (elDays) elDays.textContent = pad(Math.floor(s / 86400));
+      if (elHours) elHours.textContent = pad(Math.floor((s % 86400) / 3600));
+      if (elMins) elMins.textContent = pad(Math.floor((s % 3600) / 60));
+      if (elSecs) elSecs.textContent = pad(s % 60);
+    }
+
+    tickCountdown();
+    cdTimer = setInterval(tickCountdown, 1000);
+  }
 })();
