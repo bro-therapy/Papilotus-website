@@ -32,15 +32,34 @@
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ---- Scroll-triggered reveals ----
-  // Mark sections + key children to fade in as they enter viewport.
-  var revealTargets = document.querySelectorAll(
-    ".release-grid, .signal-grid, .afterhours-content, .footer-grid"
-  );
-  revealTargets.forEach(function (el) {
+  // ---- Scroll-triggered reveals (staggered, cinematic) ----
+  function markReveal(el, delay) {
+    if (!el || el.classList.contains("reveal")) return;
     el.classList.add("reveal");
+    if (delay) el.style.transitionDelay = delay + "ms";
+  }
+
+  // Solo elements glide in on their own.
+  document.querySelectorAll(".section-marker, .afterhours-content").forEach(function (el) {
+    markReveal(el, 0);
+  });
+  // Release card: cover first, info a beat later.
+  markReveal(document.querySelector(".cover-frame"), 0);
+  markReveal(document.querySelector(".release-info"), 120);
+
+  // The teaser plays as a timed sequence (era → label → title → … ).
+  document
+    .querySelectorAll(".teaser-era, .teaser-label, .teaser-title, .teaser-tagline, .countdown, .teaser-link")
+    .forEach(function (el, i) { markReveal(el, i * 90); });
+
+  // Grids cascade child-by-child.
+  document.querySelectorAll(".signal-grid, .footer-grid").forEach(function (group) {
+    Array.prototype.forEach.call(group.children, function (child, i) {
+      markReveal(child, i * 70);
+    });
   });
 
+  var revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(
       function (entries) {
@@ -51,12 +70,12 @@
           }
         });
       },
-      { rootMargin: "0px 0px -80px 0px", threshold: 0.15 }
+      { rootMargin: "0px 0px -60px 0px", threshold: 0.1 }
     );
-    revealTargets.forEach(function (el) { io.observe(el); });
+    revealEls.forEach(function (el) { io.observe(el); });
   } else {
     // Fallback for very old browsers
-    revealTargets.forEach(function (el) { el.classList.add("in-view"); });
+    revealEls.forEach(function (el) { el.classList.add("in-view"); });
   }
 
   // ---- Email form: handle Formspree (or any AJAX endpoint) gracefully ----
@@ -135,6 +154,34 @@
       }
     });
   });
+
+  // ---- Page transition: VHS channel-change between internal pages ----
+  var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var pageTransition = document.querySelector(".page-transition");
+  if (pageTransition && !prefersReduced) {
+    // Always clear the overlay on arrival (covers back/forward bfcache too).
+    window.addEventListener("pageshow", function () {
+      pageTransition.classList.remove("is-active");
+    });
+    document.querySelectorAll("a[href]").forEach(function (a) {
+      var href = a.getAttribute("href");
+      if (!href) return;
+      var internal =
+        /\.html($|[?#])/.test(href) &&
+        a.getAttribute("target") !== "_blank" &&
+        !a.hasAttribute("download");
+      if (!internal) return;
+      a.addEventListener("click", function (e) {
+        // Let modified clicks (new tab, etc.) behave normally.
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        e.preventDefault();
+        pageTransition.classList.add("is-active");
+        window.setTimeout(function () {
+          window.location.href = href;
+        }, 380);
+      });
+    });
+  }
 
   // ---- Subtle parallax on hero glow ----
   // Only on devices with a real pointer (skip touchscreens for battery + perf)
